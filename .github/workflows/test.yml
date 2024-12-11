@@ -1,0 +1,21 @@
+name: Example Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      first-name:
+        description: "Enter your first name"
+        required: true
+        default: "John"
+      last-name:
+        description: "Enter your last name"
+        required: true
+        default: "Doe"
+
+jobs:
+  display-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print name
+        run: |
+          echo "Hello, ${{ github.event.inputs.first-name }} ${{ github.event.inputs.last-name }}!"
